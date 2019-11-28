@@ -20,18 +20,12 @@ const dirs = items.filter(item => {
 export default dirs.map(dir => {
   return {
     input: `./src/components/${dir}/index.js`,
-    output: [
-      {
-        file: `es/${dir}/index.js`,
-        format: 'esm'
-      },
-      {
-        file: `lib/${dir}/index.js`,
-        name: `v-${dir}`,
-        format: 'umd',
-        exports: 'named'
-      }
-    ],
+    output: {
+      file: `lib/${dir}/index.js`,
+      name: `v-${dir}`,
+      format: 'umd',
+      exports: 'named'
+    },
     plugins: [
       vue(),
       terser(),
@@ -56,11 +50,11 @@ export default dirs.map(dir => {
     input: `./src/index.js`,
     output: [
       {
-        file: `es/index.js`,
+        file: `lib/v-ui.esm.js`,
         format: 'esm'
       },
       {
-        file: `lib/index.js`,
+        file: `lib/v-ui.umd.js`,
         name: `v-ui`,
         format: 'umd',
         exports: 'named'
@@ -81,7 +75,7 @@ export default dirs.map(dir => {
           cssnano(),
         ],
         extensions: ['.css'],
-        extract: true
+        extract: 'lib/index.css'
       })  
     ]
   }

@@ -1,4 +1,5 @@
 import Button from './button.vue'
+import '../../base.css'
 
 Button.install = (Vue) => {
   Vue.component(Button.name, Button)

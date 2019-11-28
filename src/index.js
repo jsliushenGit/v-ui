@@ -1,5 +1,6 @@
-export { default as Button} from './components/button/index.js'
-export { default as Tag } from './components/tag/index.js'
+import Button from './components/button/index.js'
+import Tag from './components/tag/index.js'
+import './base.css'
 
 const components = [
   Button,
@@ -12,4 +13,9 @@ const install = (Vue) => {
 
 export default {
   install
+}
+
+export {
+  Button,
+  Tag
 }
