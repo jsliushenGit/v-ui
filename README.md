@@ -30,9 +30,9 @@ npm i babel-plugin-component -D
 配置.babelrc
 ``` json
 {
-  presets: [
-    '@vue/cli-plugin-babel/preset'
-  ],
+  //......
+  // 其他配置
+  //......
   "plugins": [
     [
       "component",
