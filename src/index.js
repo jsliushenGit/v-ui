@@ -8,7 +8,14 @@ const components = [
 ]
 
 const install = (Vue) => {
+  if (install.installed) return;
   components.map(component => Vue.component(component.name, component))
+  install.installed = true;
+}
+
+// 支持cdn方式引入
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue);
 }
 
 export default {
