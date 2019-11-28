@@ -28,7 +28,7 @@ Vue.use(Button)
 npm i babel-plugin-component -D
 ```
 配置.babelrc
-``` json
+``` javaScript
 {
   //......
   // 其他配置
