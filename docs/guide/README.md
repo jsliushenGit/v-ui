@@ -1,3 +1,7 @@
+---
+pageClass: custom-component
+---
+
 # 安装
 ``` JavaScript
 npm i @jsliushen/v-ui -S
@@ -31,7 +35,7 @@ npm i babel-plugin-component -D
 ``` javaScript
 {
   //......
-  // 其他配置
+  //其他配置
   //......
   "plugins": [
     [
@@ -55,7 +59,7 @@ Vue.use(Button)
 
 ## cdn引入
 ``` JavaScript
-<script src="https://unpkg.com/@jsliushen/v-ui/lib/v-ui.umd.js"></script>
+<script src="https://unpkg.com/@jsliushen/v-ui/lib/v-ui.js"></script>
 ```
 
 ### cdn demo

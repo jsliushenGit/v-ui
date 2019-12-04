@@ -1,11 +1,17 @@
 {
   "name": "@jsliushen/v-ui",
-  "version": "0.3.4",
+  "version": "0.4.2",
   "description": "",
   "main": "lib/v-ui.umd.js",
   "module": "lib/v-ui.esm.js",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css",
+    "*.scss",
+    "*.vue"
+  ],
   "scripts": {
+    "dev": "vuepress dev docs",
+    "deploy": "sh deploy.sh",
     "build": "rm -rf ./lib && rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,7 +34,10 @@
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.2",
-    "rollup-plugin-vue2": "^0.8.1"
+    "rollup-plugin-vue2": "^0.8.1",
+    "highlight.js": "^9.16.2",
+    "sass-loader": "^8.0.0",
+    "vuepress": "^1.2.0"
   },
   "dependencies": {
     "@babel/runtime-corejs2": "^7.7.4"

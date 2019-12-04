@@ -1,0 +1,5 @@
+---
+pageClass: custom-component
+---
+
+button
