@@ -17,6 +17,27 @@ const dirs = items.filter(item => {
   return fs.statSync(path.resolve('./src/components', item)).isDirectory()
 })
 
+const getPlugin = (isComponent = false) => {
+  return [
+    vue(),
+    terser(),
+    babel({
+      exclude: 'node_modules/**',
+      runtimeHelpers: true
+    }),
+    postcss({
+      plugins: [
+        simplevars(),
+        nested(),
+        cssnext({ warnForDuplicates: false, }),
+        cssnano(),
+      ],
+      extensions: ['.css'],
+      extract: isComponent ? true : 'lib/index.css'
+    })  
+  ]
+}
+
 export default dirs.map(dir => {
   return {
     input: `./src/components/${dir}/index.js`,
@@ -26,57 +47,25 @@ export default dirs.map(dir => {
       format: 'umd',
       exports: 'named'
     },
-    plugins: [
-      vue(),
-      terser(),
-      babel({
-        exclude: 'node_modules/**',
-        runtimeHelpers: true
-      }),
-      postcss({
-        plugins: [
-          simplevars(),
-          nested(),
-          cssnext({ warnForDuplicates: false, }),
-          cssnano(),
-        ],
-        extensions: ['.css'],
-        extract: true
-      })  
-    ]
+    plugins: getPlugin(true)
   }
 }).concat([
   {
-    input: `./src/index.js`,
-    output: [
-      {
-        file: `lib/v-ui.esm.js`,
-        format: 'esm'
-      },
-      {
-        file: `lib/v-ui.umd.js`,
-        name: `v-ui`,
-        format: 'umd',
-        exports: 'named'
-      }
-    ],
-    plugins: [
-      vue(),
-      terser(),
-      babel({
-        exclude: 'node_modules/**',
-        runtimeHelpers: true
-      }),
-      postcss({
-        plugins: [
-          simplevars(),
-          nested(),
-          cssnext({ warnForDuplicates: false, }),
-          cssnano(),
-        ],
-        extensions: ['.css'],
-        extract: 'lib/index.css'
-      })  
-    ]
+    input: `./src/index.esm.js`,
+    output: {
+      file: `lib/v-ui.esm.js`,
+      format: 'esm'
+    },
+    plugins: getPlugin(false)
+  },
+  {
+    input: `./src/index.umd.js`,
+    output: {
+      file: `lib/v-ui.umd.js`,
+      name: `v-ui`,
+      format: 'umd',
+      exports: 'named'
+    },
+    plugins: getPlugin(false)
   }
 ])
