@@ -59,6 +59,16 @@ module.exports = {
               path: '/components/input'
             }
           ]
+        },
+        {
+          title: '其他组件',
+          collapsable: false,
+          children: [
+            {
+              title: 'dialog',
+              path: '/components/dialog'
+            }
+          ]
         }
       ]
     }

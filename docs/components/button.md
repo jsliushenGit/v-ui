@@ -3,7 +3,7 @@ pageClass: custom-component
 ---
 
 ## 基础用法
-<br/>
+
 <div>
   <v-button>默认按钮</v-button>
   <v-button type="primary">主要按钮</v-button>
