@@ -35,7 +35,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-terser": "^5.1.2",
     "rollup-plugin-vue2": "^0.8.1",
-    "highlight.js": "^9.16.2",
+    "highlight.js": "^10.4.1",
     "sass-loader": "^8.0.0",
     "vuepress": "^1.2.0"
   },
